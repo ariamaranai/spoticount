@@ -17,8 +17,8 @@
     let n = v.playcount || "", l = n.length;
     return [
         l < 4 ? n
-      : l < 7 ? n.slice(0, l - 3) + "," + n.slice(-3)
-      : l < 10 ? n.slice(0, l - 6) + "," + n.slice(-6, -3) + "," + n.slice(-3)
+      : l < 7 ? n.slice(0, -3) + "," + n.slice(-3)
+      : l < 10 ? n.slice(0, -6) + "," + n.slice(-6, -3) + "," + n.slice(-3)
       : (+n).toLocaleString(),
       v.uri || ""
     ]
