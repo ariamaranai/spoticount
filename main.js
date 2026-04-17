@@ -1,6 +1,6 @@
 {
   let dt = document.createElement("dt");
-  dt.setAttribute("style", "font-size:14px");
+  dt.style.fontSize = "14px";
   let buf = {};
   HTMLDivElement.prototype.setAttribute = function (a, b) {
     if (b == "tracklist-row") {
