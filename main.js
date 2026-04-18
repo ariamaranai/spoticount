@@ -2,6 +2,7 @@
   let dt = document.createElement("dt");
   dt.style.fontSize = "14px";
   let buf = {};
+  let _setAttribute = Element.prototype.setAttribute;
   HTMLDivElement.prototype.setAttribute = function (a, b) {
     if (b == "tracklist-row") {
       let items = buf[location.pathname.slice(-22)];
@@ -11,7 +12,7 @@
         (this.lastChild.insertAdjacentElement("afterbegin", dt.cloneNode()).textContent = u);
       }
     } else
-      Element.prototype.setAttribute.call(this, a, b);
+      _setAttribute.call(this, a, b);
   }
   let toLocale = v => {
     let n = v.playcount || "", l = n.length;
