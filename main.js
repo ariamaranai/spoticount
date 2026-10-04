@@ -4,15 +4,16 @@
   let buf = {};
   let _setAttribute = Element.prototype.setAttribute;
   HTMLDivElement.prototype.setAttribute = function (a, b) {
-    if (b == "tracklist-row") {
+    if (b === "tracklist-row") {
       let items = buf[location.pathname.slice(-22)];
       if (items) {
         let u = this.querySelector("a").href.slice(-22);
-        (u = items.find(v => v[1].endsWith(u))[0]) &&
-        (this.lastChild.insertAdjacentElement("afterbegin", dt.cloneNode()).textContent = u);
+        return (u = items.find(v => v[1].endsWith(u))[0]) && (
+          this.lastChild.insertAdjacentElement("afterbegin", dt.cloneNode()).textContent = u
+        );
       }
     } else
-      _setAttribute.call(this, a, b);
+      return _setAttribute.call(this, a, b);
   }
   let toLocale = v => {
     let n = v.playcount || "", l = n.length;
